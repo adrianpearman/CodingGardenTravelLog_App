@@ -8,7 +8,6 @@ const app = express();
 const middlewares = require("./middlewares/middlewares");
 const monogoConnection = require("./middlewares/mongoConnection");
 const keys = require("../config/keys");
-const routes = require("./apiRoutes/logs");
 const PORT = process.env.PORT || 3001;
 
 //Database
@@ -31,7 +30,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/api/logs", routes);
+app.use("/api/logs", require("./apiRoutes/logs"));
 
 app.use(middlewares.unfoundRoute);
 app.use(middlewares.generalErrorHandler);
