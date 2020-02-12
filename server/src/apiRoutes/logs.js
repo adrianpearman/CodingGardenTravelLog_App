@@ -1,9 +1,10 @@
-const express = require("express");
+const express = require('express');
+
 const router = express.Router();
 
-const LogEntry = require("../models/LogEntry");
+const LogEntry = require('../models/LogEntry');
 
-router.get("/", async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const logList = await LogEntry.find({});
     res.json(logList);
@@ -12,13 +13,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const logEntry = new LogEntry(req.body);
     const createdEntry = await logEntry.save();
     res.json(createdEntry);
   } catch (err) {
-    if (err.name === "ValidationError") {
+    if (err.name === 'ValidationError') {
       res.status(422);
     }
     next(err);

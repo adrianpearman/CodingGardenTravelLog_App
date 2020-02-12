@@ -1,0 +1,10 @@
+{
+  "name": "CodingGardenTravelLog",
+  "version": "1.0.0",
+  "repository": "git@github.com:adrianpearman/CodingGardenTravelLog_App.git",
+  "author": "Adrian Pearman <adrianpearman12@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/src/index.js"
+  }
+}
