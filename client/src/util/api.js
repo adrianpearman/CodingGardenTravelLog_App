@@ -1,17 +1,11 @@
-const API_URL = "http://localhost:3001";
+import axios from "axios";
 
 export const listLogEntries = async () => {
-  const response = await fetch(`${API_URL}/api/logs`);
-  return response.json();
+  const response = await axios.get(`/api/logs`);
+  return response.data;
 };
 
 export const createLogEntry = async entry => {
-  const response = await fetch(`${API_URL}/api/logs`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json"
-    },
-    body: JSON.stringify(entry)
-  });
-  return response.json();
+  const response = await axios.post(`/api/logs`, entry);
+  return response.data;
 };
