@@ -23,11 +23,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/api/logs", require("./apiRoutes/logs"));
-
-app.use(middlewares.unfoundRoute);
-app.use(middlewares.generalErrorHandler);
-
 // Render client root buildfile if the application is ona production server
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(clientRoot));
@@ -35,6 +30,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile("index.html", { clientRoot });
   });
 }
+app.use("/api/logs", require("./apiRoutes/logs"));
+
+app.use(middlewares.unfoundRoute);
+app.use(middlewares.generalErrorHandler);
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT: ${PORT}`);
