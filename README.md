@@ -10,6 +10,7 @@ Code along session with 'Coding Garden with CJ'. Inspiration based on https://yo
 * React
 * React Hooks & ReactHook Form
 * React Map GL
+* Mapbox
 * esLint
 
 Live Link: https://vast-temple-60193.herokuapp.com/
