@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -18,7 +18,6 @@ const LogEntrySchema = new Schema(
       max: 10,
       default: 0,
     },
-    image: String,
     latitude: { ...requiredNumber, min: -90, max: 90 },
     longitude: { ...requiredNumber, min: -180, max: 180 },
     visitDate: {
@@ -28,9 +27,9 @@ const LogEntrySchema = new Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
-const LogEntry = mongoose.model('LogEntry', LogEntrySchema);
+const LogEntry = mongoose.model("LogEntry", LogEntrySchema);
 
 module.exports = LogEntry;
