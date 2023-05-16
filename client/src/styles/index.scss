@@ -11,10 +11,9 @@ body {
 .marker {
   fill: #f8c102;
   transform: translate(-50%, -100%);
-}
-
-.marker-secondary {
-  fill: #02f8aa;
+  &-secondary {
+    fill: #02f8aa;
+  }
 }
 
 .popUp {
@@ -22,11 +21,15 @@ body {
   padding: 1rem;
 }
 
-.entryForm,
-.entryForm input,
-.entryForm textarea,
-.entryForm button {
-  margin: 0.5rem 0;
-  display: block;
-  width: 100%;
+.entryForm {
+  & input,
+  & textarea,
+  & button {
+    margin: 0.5rem 0;
+    display: block;
+  }
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
