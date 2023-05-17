@@ -7,12 +7,12 @@ const helmet = require("helmet");
 const path = require("path");
 // Variables
 const app = express();
-const clientRoot = path.join(__dirname, "../client", "dist");
+const clientRoot = path.join(__dirname, "/client", "dist");
 const {
   generalErrorHandler,
   unfoundRoute,
-} = require("./middlewares/middlewares");
-const monogoConnection = require("./middlewares/mongoConnection");
+} = require("./src/middlewares/middlewares");
+const monogoConnection = require("./src/middlewares/mongoConnection");
 const PORT = process.env.PORT;
 // Database Connection
 app.enable("trust proxy");
@@ -24,14 +24,14 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 // Render client root buildfile if the application is on a production server
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(clientRoot));
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(clientRoot, "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+app.use(express.static(clientRoot));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(clientRoot, "index.html"));
+});
+// }
 // Routes
-app.use("/api/logs", require("./apiRoutes/logs"));
+app.use("/api/logs", require("./src/apiRoutes/logs"));
 // Route Middleware
 app.use(generalErrorHandler);
 app.use(unfoundRoute);
