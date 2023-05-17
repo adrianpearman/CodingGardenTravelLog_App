@@ -13,4 +13,4 @@ Code along session with 'Coding Garden with CJ'. Inspiration based on https://yo
 * Mapbox
 * esLint
 
-Live Link: https://vast-temple-60193.herokuapp.com/
+Live Link: https://codinggarding-travellog.up.railway.app/
