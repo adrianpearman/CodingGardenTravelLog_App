@@ -11,8 +11,8 @@ const clientRoot = path.join(__dirname, "../client", "dist");
 const {
   generalErrorHandler,
   unfoundRoute,
-} = require("./src/middlewares/middlewares");
-const monogoConnection = require("./src/middlewares/mongoConnection");
+} = require("./middlewares/middlewares");
+const monogoConnection = require("./middlewares/mongoConnection");
 const PORT = process.env.PORT;
 // Database Connection
 app.enable("trust proxy");
@@ -31,13 +31,12 @@ app.get("/", (req, res) => {
 });
 // }
 // Routes
-app.use("/api/logs", require("./src/apiRoutes/logs"));
+app.use("/api/logs", require("./apiRoutes/logs"));
 // Route Middleware
 app.use(generalErrorHandler);
 app.use(unfoundRoute);
 app.listen(PORT, () => {
   console.log(`Listening on PORT: ${PORT}`);
-  console.log(process.env.NODE_ENV);
 });
 
 // curl --compressed https:://octo.win/twitch

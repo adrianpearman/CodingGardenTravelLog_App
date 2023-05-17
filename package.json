@@ -15,7 +15,7 @@
     "rate-limit-mongo": "^2.3.2"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "devServer": "nodemon src/index.js",
     "devClient": "cd client && yarn run dev",
     "dev": "concurrently \"yarn run devServer\" \"yarn run devClient\"",
