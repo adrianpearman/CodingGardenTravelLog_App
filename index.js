@@ -7,7 +7,7 @@ const helmet = require("helmet");
 const path = require("path");
 // Variables
 const app = express();
-const clientRoot = path.join(__dirname, "/client", "dist");
+const clientRoot = path.join(__dirname, "../client", "dist");
 const {
   generalErrorHandler,
   unfoundRoute,
