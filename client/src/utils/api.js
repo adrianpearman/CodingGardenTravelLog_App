@@ -1,7 +1,5 @@
 import axios from "axios";
 
-console.log(import.meta.env);
-
 const axiosClient = axios.create({
   baseURL: import.meta.env.MODE === "production" ? "" : "http://localhost:4000",
   json: true,
